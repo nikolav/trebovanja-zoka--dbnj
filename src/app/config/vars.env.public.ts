@@ -2,10 +2,10 @@
 // import { trimEndBase } from "../utils/trim-end-base";
 import { PRODUCTION } from "./vars.env";
 
-export const APP_NAME = "200-ngapp";
+export const APP_NAME = "trebovanja-zoka";
 export const ADMIN_EMAIL = "admin@nikolav.rs";
 
-export const URL_APP_PUBLIC_production = "https://ngapp---iec2cy5qtf---dev.web.app/";
+export const URL_APP_PUBLIC_production = "https://trebovanja-zoka.nikolav.rs/";
 export const URL_APP_PUBLIC_dev = "http://localhost:4200/";
 export const URL_APP_PUBLIC = PRODUCTION
   ? // "https://qdeiymppite.web.app/"
