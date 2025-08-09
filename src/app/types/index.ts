@@ -1,0 +1,37 @@
+import { GuardResult, MaybeAsync } from "@angular/router";
+
+import {
+  JsonDataRecord as TRecordJson,
+  TJson,
+  TJsonLiteral,
+} from "../schemas/json.schema";
+
+export * from "./models";
+
+export type { TRecordJson, TJson, TJsonLiteral, MaybeAsync as TMaybeAsync };
+
+export type TOrNoValue<T = any> = T | undefined | null;
+export interface IAuthCreds {
+  email: string;
+  password: string;
+}
+export interface ICanComponentDeactivate {
+  canDeactivate: () => MaybeAsync<GuardResult>;
+}
+
+export interface IResultApolloCacheService {
+  cacheRedisGetCacheByKey: {
+    error: any;
+    status: { cache: TRecordJson };
+  };
+}
+export interface IUploadFile {
+  file: File;
+  path?: string;
+}
+export type TUploadFiles = Record<string, IUploadFile>;
+
+// ==store:flags
+export interface ISToreFlagsCache {
+  [name: string]: boolean;
+}
