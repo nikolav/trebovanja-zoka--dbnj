@@ -84,3 +84,12 @@
     )
   );
 }
+
+.app-mat-expansion-flat {
+  @include mat.expansion-overrides(
+    (
+      container-shape: 0,
+      container-background-color: transparent,
+    )
+  );
+}

@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormBuilder } from "@angular/forms";
 // import { PopperjsModule } from "../../modules";
 
 import { LayoutDefault } from "../../layouts";
-import { MaterialUIModule, PopperjsModule } from "../../modules";
+import { MaterialUIModule } from "../../modules";
 import {
   // StoreAuth,
   StoreMain,
@@ -15,21 +15,20 @@ import {
   UseToggleFlagService,
 } from "../../services";
 import {
-  IconLoading,
   IconAccount,
-  IconBuildings,
+  // IconLoading,
+  // IconBuildings,
 } from "../../components/icons";
 
 @Component({
   selector: "page-index",
   imports: [
     IconAccount,
-    IconBuildings,
-    IconLoading,
+    // IconBuildings,
+    // IconLoading,
     JsonPipe,
     LayoutDefault,
     MaterialUIModule,
-    PopperjsModule,
     ReactiveFormsModule,
   ],
   templateUrl: "./index.component.html",

@@ -3,10 +3,16 @@
     <h2>
       &#64;page--index
     </h2>
-    <div>
-      <p class="text-center">
-        📣ovde cu postavljam aplikaciju zoka👌
-      </p>
+    <button mat-raised-button (click)="$toggle.toggle()">ok</button>
+    <div class="mt-1">
+      <mat-expansion-panel [expanded]="$toggle.isActive()" class="app-mat-expansion-flat app-elevated-off">
+        <p class="*text-center">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro voluptatum, ullam doloribus repudiandae ut
+          quae
+          labore quisquam ad necessitatibus odit sit numquam fugit, quam eligendi natus magnam consequuntur illum
+          soluta.
+        </p>
+      </mat-expansion-panel>
     </div>
   </section>
 </app-layout-default>
