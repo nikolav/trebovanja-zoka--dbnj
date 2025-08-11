@@ -7,11 +7,14 @@ import {
   NavigationStart,
   Router,
   RouterModule,
+  RouterOutlet,
 } from "@angular/router";
 
 import { MaterialUIModule } from "./modules";
 import { EmitterService, AppConfigService, UseUtilsService } from "./services";
 import { StoreFlags } from "./stores";
+
+import { routeTransitionInOut } from "./assets/route-transitions";
 
 @Component({
   selector: "app-root",
@@ -19,6 +22,7 @@ import { StoreFlags } from "./stores";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
   providers: [],
+  animations: [routeTransitionInOut],
 })
 export class AppComponent implements OnInit {
   private $router = inject(Router);
@@ -27,7 +31,7 @@ export class AppComponent implements OnInit {
   private $emitter = inject(EmitterService);
 
   // toggle sidenav flags
-  readonly KEY_FLAGS = this.$config.key.CACHE_KEY_STORE_FLAGS;
+  readonly SIDENAV_ACTIVE = this.$config.key.FLAGS_SIDENAV_ACTIVE;
   readonly $flags = inject(StoreFlags);
 
   constructor() {
@@ -51,5 +55,8 @@ export class AppComponent implements OnInit {
     setTimeout(() =>
       this.$emitter.subject.next(this.$config.events.EVENT_APP_INIT)
     );
+  }
+  prepareRouteTransition(outlet: RouterOutlet) {
+    return this.$$.get(outlet, "activatedRouteData.animation", "default");
   }
 }

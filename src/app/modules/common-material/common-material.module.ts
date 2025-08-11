@@ -34,6 +34,10 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 
+// # cdk
+import { OverlayModule } from "@angular/cdk/overlay";
+import { PortalModule } from "@angular/cdk/portal";
+
 //
 // import { MatDatepickerModule } from "@angular/material/datepicker";
 // import { MatTimepickerModule } from "@angular/material/timepicker";
@@ -73,6 +77,9 @@ const MODULES = [
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  // cdk
+  OverlayModule,
+  PortalModule,
 ];
 
 @NgModule({
