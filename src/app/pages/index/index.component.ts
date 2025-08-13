@@ -11,14 +11,17 @@ import {
 } from "../../stores";
 import {
   UseUtilsService,
-  // UseDisplayService,
+  UseDisplayService,
   UseToggleFlagService,
+  LightboxService,
+  UseUniqueIdService,
 } from "../../services";
 import {
   IconAccount,
   // IconLoading,
   // IconBuildings,
 } from "../../components/icons";
+import { AnimatecssDirective } from "../../directives";
 
 @Component({
   selector: "page-index",
@@ -30,6 +33,7 @@ import {
     LayoutDefault,
     MaterialUIModule,
     ReactiveFormsModule,
+    AnimatecssDirective,
   ],
   templateUrl: "./index.component.html",
   styleUrl: "./index.component.scss",
@@ -40,20 +44,17 @@ export class IndexComponent implements OnInit, OnDestroy {
   $$ = inject(UseUtilsService);
   $main = inject(StoreMain);
   // $auth = inject(StoreAuth);
-
+  $display = inject(UseDisplayService);
+  $lightbox = inject(LightboxService);
   $toggle = new UseToggleFlagService().use(false);
+  $id = new UseUniqueIdService()
 
   val = this.f.control("");
 
   list = ["foo", "bar", "baz"];
 
-  ok() {
-    console.log(
-      this.$$.deepmerge()(
-        { x: { a: [null, { b: 1 }] } },
-        { x: { a: [{ c: 2 }] } }
-      )
-    );
+  ok(d: any) {
+    console.log(d);
   }
   ngOnInit() {}
   ngOnDestroy() {}

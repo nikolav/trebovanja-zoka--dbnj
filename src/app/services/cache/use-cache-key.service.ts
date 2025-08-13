@@ -21,7 +21,7 @@ export class UseCacheKeyService implements OnDestroy {
   private q_s: TOrNoValue<Subscription>;
   private q = computed(() => this.$cache.key(this.cache_key()));
   // #public
-  enabled = computed(() => !!this.cache_key());
+  enabled = computed(() => Boolean(this.cache_key()));
   data = signal<any>(undefined);
   io = computed(() =>
     this.enabled()

@@ -1,15 +1,14 @@
 import { Injectable, inject, signal } from "@angular/core";
 import { UseUtilsService } from "../../services";
-import type { TOrNoValue } from "../../types";
 
 @Injectable({
   providedIn: "root",
 })
 export class UseUniqueIdService {
   private $$ = inject(UseUtilsService);
-
   private prefix: string;
-  ID = signal<TOrNoValue<string>>(null);
+
+  ID = signal("");
 
   constructor() {
     this.prefix = `${this.$$.idGen()}:`;

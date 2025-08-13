@@ -1,5 +1,4 @@
-import { Component, OnInit, inject } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { AfterViewInit, Component, OnInit, inject } from "@angular/core";
 import {
   NavigationCancel,
   NavigationEnd,
@@ -18,13 +17,13 @@ import { routeTransitionInOut } from "./assets/route-transitions";
 
 @Component({
   selector: "app-root",
-  imports: [CommonModule, RouterModule, MaterialUIModule],
+  imports: [RouterModule, MaterialUIModule],
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
   providers: [],
   animations: [routeTransitionInOut],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   private $router = inject(Router);
   private $$ = inject(UseUtilsService);
   private $config = inject(AppConfigService);
@@ -56,7 +55,16 @@ export class AppComponent implements OnInit {
       this.$emitter.subject.next(this.$config.events.EVENT_APP_INIT)
     );
   }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.$emitter.subject.next(this.$config.events.EVENT_APPVIEW_INIT);
+    });
+  }
   prepareRouteTransition(outlet: RouterOutlet) {
-    return this.$$.get(outlet, "activatedRouteData.animation", "default");
+    return this.$$.get(
+      outlet,
+      "activatedRouteData.animationToken",
+      "--DEFAULT--"
+    );
   }
 }

@@ -10,8 +10,8 @@ import {
 
 export const routeTransitionInOut = trigger("routeTransitionInOut", [
   transition("* <=> *", [
-    // Wildcard for any route change
-    style({ position: "relative" }),
+    // # Wildcard for any route change
+    // style({ position: "relative" }),
     query(
       ":enter, :leave",
       [

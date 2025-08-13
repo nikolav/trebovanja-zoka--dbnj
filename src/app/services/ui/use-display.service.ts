@@ -23,14 +23,15 @@ const DISPLAY_ORIENTATIONS = new Map([
   providedIn: "root",
 })
 export class UseDisplayService {
-  readonly UNKNOWN = "";
-  private _destroyed = new Subject<void>();
-  private readonly _breakpointObserver = inject(BreakpointObserver);
-  private readonly _breakpointObserverOrientation = inject(BreakpointObserver);
+  private UNKNOWN = "";
+  current = signal<string>(this.UNKNOWN);
+  orientation = signal<string>(this.UNKNOWN);
 
-  readonly current = signal<string>(this.UNKNOWN);
-  readonly orientation = signal<string>(this.UNKNOWN);
-  readonly width = signal<TOrNoValue<number>>(window.innerWidth);
+  private _destroyed = new Subject<void>();
+  private _breakpointObserver = inject(BreakpointObserver);
+  private _breakpointObserverOrientation = inject(BreakpointObserver);
+
+  width = signal(window.innerWidth);
 
   xs = computed(() => "xs" === this.current());
   sm = computed(() => "sm" === this.current());
@@ -75,6 +76,7 @@ export class UseDisplayService {
         }
       });
     // sync window width
+
     this.width_s = fromEvent(window, "resize").subscribe(() => {
       this.width.set(window.innerWidth);
     });
