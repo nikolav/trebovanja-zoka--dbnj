@@ -9,9 +9,8 @@ import {
 } from "@angular/animations";
 
 export const routeTransitionInOut = trigger("routeTransitionInOut", [
-  transition("* <=> *", [
-    // # Wildcard for any route change
-    // style({ position: "relative" }),
+  transition("* => *", [
+    style({ position: "relative" }),
     query(
       ":enter, :leave",
       [
@@ -28,6 +27,7 @@ export const routeTransitionInOut = trigger("routeTransitionInOut", [
       optional: true,
     }),
     query(":leave", animateChild(), { optional: true }),
+    // run in parallel incomin/outgoing pages
     group([
       query(
         ":leave",

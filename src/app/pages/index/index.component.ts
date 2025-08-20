@@ -47,7 +47,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   $display = inject(UseDisplayService);
   $lightbox = inject(LightboxService);
   $toggle = new UseToggleFlagService().use(false);
-  $id = new UseUniqueIdService()
+  $id = new UseUniqueIdService();
 
   val = this.f.control("");
 

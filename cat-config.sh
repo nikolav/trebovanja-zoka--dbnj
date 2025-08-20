@@ -8,4 +8,6 @@ cat ./src/app/config/vars.env.ts
 
 # find files by content
 #  $ find src -type d \( -name "node_modules" -o -name "dist" \) -prune -o -type f -name "*" -exec grep --color=auto -Hn "TOKEN" {} +
+# @Corriere  @AP @FrancePress1 @elpaisinenglish @DeutscheWelle @LaStampa
+
 
