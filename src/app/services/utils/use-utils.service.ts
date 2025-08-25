@@ -42,6 +42,7 @@ const {
   isEqual,
   isString,
   kebabCase,
+  keys,
   last,
   map,
   merge,
@@ -65,6 +66,7 @@ const {
   trimStart,
   uniqueId,
   unset,
+  values,
 } = lodash;
 
 @Injectable({
@@ -95,6 +97,7 @@ export class UseUtilsService {
   isEqual = isEqual;
   isString = isString;
   kebabCase = kebabCase;
+  keys = keys;
   last = last;
   len = len;
   map = map;
@@ -119,6 +122,7 @@ export class UseUtilsService {
   trimStart = trimStart;
   uniqueId = uniqueId;
   unset = unset;
+  values = values;
 
   // sprint-js
   sprintf = sprintf;
