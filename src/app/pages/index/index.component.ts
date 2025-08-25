@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject } from "@angular/core";
+import { Component, OnInit, OnDestroy, inject, effect } from "@angular/core";
 import { JsonPipe } from "@angular/common";
 import { ReactiveFormsModule, FormBuilder, FormControl } from "@angular/forms";
 // import { PopperjsModule } from "../../modules";
@@ -11,6 +11,7 @@ import {
   UseDisplayService,
   UseToggleFlagService,
   UseUniqueIdService,
+  CloudMessagingService,
 } from "../../services";
 import {
   IconAccount,
@@ -18,6 +19,8 @@ import {
   // IconBuildings,
 } from "../../components/icons";
 import { AnimatecssDirective } from "../../directives";
+import { TOrNoValue } from "../../types";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "page-index",
@@ -43,12 +46,24 @@ export class IndexComponent implements OnInit, OnDestroy {
   $display = inject(UseDisplayService);
   $toggle = new UseToggleFlagService().use(false);
   $id = new UseUniqueIdService();
+  $cm = inject(CloudMessagingService);
+  private cm_: TOrNoValue<Subscription> = null;
 
   val = this.f.control("");
 
   list = ["foo", "bar", "baz"];
   ff = new FormControl([]);
 
+  constructor() {
+    effect((cleanup) => {
+      cleanup(() => {
+        this.cm_?.unsubscribe();
+      });
+      this.cm_ = this.$cm.message()?.subscribe((msg) => {
+        console.log({ msg });
+      });
+    });
+  }
   ok(d: any) {
     console.log(d);
   }
@@ -57,7 +72,9 @@ export class IndexComponent implements OnInit, OnDestroy {
       console.log({ v });
     });
   }
-  ngOnDestroy() {}
+  ngOnDestroy() {
+    this.cm_?.unsubscribe();
+  }
 
   debug() {
     console.log(this.$main.store());
