@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, inject } from "@angular/core";
 import { JsonPipe } from "@angular/common";
-import { ReactiveFormsModule, FormBuilder } from "@angular/forms";
+import { ReactiveFormsModule, FormBuilder, FormControl } from "@angular/forms";
 // import { PopperjsModule } from "../../modules";
 
 import { LayoutDefault } from "../../layouts";
@@ -13,7 +13,6 @@ import {
   UseUtilsService,
   UseDisplayService,
   UseToggleFlagService,
-  LightboxService,
   UseUniqueIdService,
 } from "../../services";
 import {
@@ -45,18 +44,22 @@ export class IndexComponent implements OnInit, OnDestroy {
   $main = inject(StoreMain);
   // $auth = inject(StoreAuth);
   $display = inject(UseDisplayService);
-  $lightbox = inject(LightboxService);
   $toggle = new UseToggleFlagService().use(false);
   $id = new UseUniqueIdService();
 
   val = this.f.control("");
 
   list = ["foo", "bar", "baz"];
+  ff = new FormControl([]);
 
   ok(d: any) {
     console.log(d);
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.ff.valueChanges.subscribe((v) => {
+      console.log({ v });
+    });
+  }
   ngOnDestroy() {}
 
   debug() {

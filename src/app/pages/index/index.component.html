@@ -3,29 +3,11 @@
     <h2>
       &#64;page--index
     </h2>
-    <button mat-raised-button (click)="$lightbox.open([{ src: '/lotr.webp' }, { src: '/lake.jpg' }])">images</button>
-    <button mat-raised-button (click)="$toggle.toggle()">ok</button>
-    <div class="mt-1">
-      <mat-expansion-panel [expanded]="$toggle.isActive()" class="app-mat-expansion-flat app-elevated-off">
-        <p class="*text-center">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro voluptatum, ullam doloribus repudiandae ut
-          quae
-          labore quisquam ad necessitatibus odit sit numquam fugit, quam eligendi natus magnam consequuntur illum
-          soluta.
-        </p>
-      </mat-expansion-panel>
-    </div>
-    <div class="flex justify-center items-center gap-x-2">
-      <span>{{ $display.width() }}</span> •
-      <span>{{ $display.current() }}</span>
-    </div>
-    <button mat-raised-button (click)="$id.next()">:key</button>
-    <div class="space-y-5" animateCss="flipInX" [animateCssKey]="$id.ID()" [animateCssDuration]="1234"
-      (animateCssAnimationEnd)="ok(1)" (animateCssAnimationStart)="ok(0)">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat esse quos consectetur accusamus beatae omnis
-        fugit praesentium nobis dolorum maxime neque non, amet saepe quia sequi? Maxime vel iste est.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat esse quos consectetur accusamus beatae omnis
-        fugit praesentium nobis dolorum maxime neque non, amet saepe quia sequi? Maxime vel iste est.</p>
-    </div>
+    <mat-button-toggle-group multiple [formControl]="ff">
+      <mat-button-toggle value="bold">Bold</mat-button-toggle>
+      <mat-button-toggle value="italic">Italic</mat-button-toggle>
+      <mat-button-toggle value="underline">Underline</mat-button-toggle>
+    </mat-button-toggle-group>
+
   </section>
 </app-layout-default>
