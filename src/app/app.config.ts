@@ -27,7 +27,6 @@ import {
   provideHttpClient,
   withFetch,
   withInterceptors,
-  // withInterceptorsFromDi,
 } from "@angular/common/http";
 
 import {
@@ -41,36 +40,13 @@ import { InMemoryCache } from "@apollo/client/core";
 
 // #https://github.com/angular/angularfire/blob/main/docs/firestore.md
 import { provideFirebaseApp } from "@angular/fire/app";
-// import { provideFirestore } from "@angular/fire/firestore";
 import { provideAuth as provideFirebaseAuth } from "@angular/fire/auth";
 import { provideStorage as provideFirebaseStorage } from "@angular/fire/storage";
 import {
-  provideMessaging as provideFirebaseMessaging,
-  getMessaging,
-} from "@angular/fire/messaging";
-import {
   app as firebaseApp,
-  // db as firestore,
   auth as firebaseAuth,
   storage as firebaseStorage,
 } from "./config/firebase";
-
-// import {
-//   AppConfigService,
-//   UseUtilsService,
-//   DatetimeService,
-//   EmitterService,
-//   LightboxService,
-//   TopicsService,
-//   CacheService,
-//   UseDisplayService,
-// } from "./services";
-// import {
-//   StoreMain,
-//   StoreAuth,
-//   StoreAppProcessing,
-// } from "./stores";
-// import { AuthGuard, FooDeactivateGuard } from "./middleware/guards";
 
 import { ENDPOINT_GRAPHQL, configSocketIO } from "./config";
 import { SocketIoModule } from "ngx-socket-io";
@@ -82,21 +58,12 @@ export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(CommonModule),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(
-      routes
-      // , withHashLocation()
-      // , withComponentInputBinding()
-    ),
+    provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
     provideHttpClient(
       withFetch(),
-      withInterceptors([
-        // @interceptor:demo --log-http
-        logRequestInterceptor,
-        authHeaderInterceptor,
-      ])
-      // withInterceptorsFromDi(),
+      withInterceptors([logRequestInterceptor, authHeaderInterceptor])
     ),
     provideApollo(() => {
       const httpLink = inject(HttpLink);
@@ -109,27 +76,10 @@ export const appConfig: ApplicationConfig = {
     }),
     importProvidersFrom(SocketIoModule.forRoot(configSocketIO)),
     // ##services
-    // UseUtilsService,
-    // DatetimeService,
-    // AppConfigService,
-    // EmitterService,
-    // StoreMain,
-    // StoreAuth,
-    // TopicsService,
-    // CacheService,
-    // StoreAppProcessing,
-    // #services:ui
-    // LightboxService,
-    // UseDisplayService,
-    // ##guards
-    // AuthGuard,
-    // FooDeactivateGuard,
     // ##firebase
     provideFirebaseApp(() => firebaseApp),
-    // provideFirestore(() => firestore),
     provideFirebaseAuth(() => firebaseAuth),
     provideFirebaseStorage(() => firebaseStorage),
-    provideFirebaseMessaging(() => getMessaging(firebaseApp)),
     // #provide:custom
     {
       provide: TOKEN_foo,

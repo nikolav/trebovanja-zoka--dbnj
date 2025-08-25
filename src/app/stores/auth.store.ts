@@ -6,7 +6,7 @@ import {
   computed,
   signal,
   effect,
-  Injector,
+  // Injector,
   untracked,
 } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -51,7 +51,7 @@ import { URL_AUTH_authenticate } from "../config";
   providedIn: "root",
 })
 export class StoreAuth implements OnDestroy {
-  private $injector = inject(Injector);
+  // private $injector = inject(Injector);
   private $http = inject(HttpClient);
   private $auth = inject(Auth);
   private $io = inject(Socket);
@@ -108,30 +108,6 @@ export class StoreAuth implements OnDestroy {
     this.user_s = this.user$.subscribe((user) => {
       this.account.set(user);
     });
-    // @profile:load-from-cache at app:init
-    // this.$emitter.subject
-    //   .pipe(
-    //     op_filter((event) => this.$config.events.EVENT_APP_INIT === event),
-    //     op_first()
-    //   )
-    //   .subscribe(() => {
-    //     // @app:mounted
-    //     //  profile --sync-start
-    //     effect(
-    //       () => {
-    //         this.profile_s?.unsubscribe();
-    //         const cache_key = this.profileCacheKey();
-    //         if (!cache_key) return;
-    //         this.profile_q = this.$cache.key(cache_key);
-    //         this.profile_s = this.profile_q?.valueChanges.subscribe(
-    //           (result) => {
-    //             this.profile.set(this.$cache.data(result, cache_key));
-    //           }
-    //         );
-    //       },
-    //       { injector: this.$injector }
-    //     );
-    //   });
     // load profile on cache_key
     effect((onCleanup) => {
       let profile_cache_key = this.profileCacheKey();

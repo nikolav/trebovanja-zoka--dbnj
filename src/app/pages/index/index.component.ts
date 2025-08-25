@@ -5,10 +5,7 @@ import { ReactiveFormsModule, FormBuilder, FormControl } from "@angular/forms";
 
 import { LayoutDefault } from "../../layouts";
 import { MaterialUIModule } from "../../modules";
-import {
-  // StoreAuth,
-  StoreMain,
-} from "../../stores";
+import { StoreAuth, StoreMain } from "../../stores";
 import {
   UseUtilsService,
   UseDisplayService,
@@ -42,7 +39,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   private f = inject(FormBuilder);
   $$ = inject(UseUtilsService);
   $main = inject(StoreMain);
-  // $auth = inject(StoreAuth);
+  $auth = inject(StoreAuth);
   $display = inject(UseDisplayService);
   $toggle = new UseToggleFlagService().use(false);
   $id = new UseUniqueIdService();

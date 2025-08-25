@@ -1,5 +1,4 @@
-import { Injectable, inject, signal } from "@angular/core";
-import { EmitterService, AppConfigService } from "../../services";
+import { Injectable, signal } from "@angular/core";
 
 @Injectable({
   providedIn: "root",
@@ -7,15 +6,8 @@ import { EmitterService, AppConfigService } from "../../services";
 export class NotificationsRequestService {
   granted = signal<boolean>(false);
 
-  private $config = inject(AppConfigService);
-  private $emitter = inject(EmitterService);
-
   constructor() {
-    this.$emitter.subject.subscribe((evt) => {
-      if (this.$config.events.EVENT_APP_INIT === evt) {
-        this.request();
-      }
-    });
+    this.request();
   }
   request() {
     Notification.requestPermission().then((permission_) => {
