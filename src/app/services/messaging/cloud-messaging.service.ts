@@ -33,7 +33,7 @@ export class CloudMessagingService {
       {}
     )
   );
-  private service_initialized = computed(
+  private service_ready = computed(
     () =>
       null != this.$client() &&
       this.$notifications.granted() &&
@@ -44,16 +44,16 @@ export class CloudMessagingService {
 
   constructor() {
     // setup service
-    messagingIsSupported().then((isSupported) => {
-      if (!isSupported) {
+    (async () => {
+      if (!(await messagingIsSupported())) {
         throw Error("firebase cloud messaging not supported.");
       }
       const service = getMessaging(firebaseApp);
       this.$client.set(service);
-    });
+    })();
     // setup fcm-token
     effect(async () => {
-      if (!this.service_initialized()) return;
+      if (!this.service_ready()) return;
       const tokenClientFCM = await getToken(this.$client()!, {
         vapidKey: VAPID_KEY,
       });
@@ -69,9 +69,9 @@ export class CloudMessagingService {
       if (!client) return;
       if (!this.message()) {
         this.message.set(
-          new Observable((sub) =>
+          new Observable((observer) =>
             onMessage(client, (msg) => {
-              sub.next(msg);
+              observer.next(msg);
             })
           )
         );
