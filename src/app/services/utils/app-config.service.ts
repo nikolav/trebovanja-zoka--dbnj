@@ -31,7 +31,8 @@ export class AppConfigService {
 
   app = {
     PROCESSING: `PROCESSING:510e66b5-2880-5c7a-ae49-aa2f191d2bcc`,
-    ROUTE_PATH_REDIRECT_UNATHENTICATED: "/",
+    ROUTE_PATH_REDIRECT_UNATHENTICATED: "/auth",
+    ROUTE_PATH_REDIRECT_ATHENTICATED: "/",
   };
   // collections:config:mongo
   collections = {

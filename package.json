@@ -10,7 +10,8 @@
     "test": "ng test",
     "serve:ssr:ngapp": "node dist/ngapp/server/server.mjs",
     "tinker": "ts-node ./tinker.mjs ",
-    "deploy:dev": "npm run build && firebase deploy --only hosting "
+    "deploy:dev": "npm run build && firebase deploy --only hosting ",
+    "serve:docs": "npx live-server docs/www "
   },
   "private": true,
   "dependencies": {

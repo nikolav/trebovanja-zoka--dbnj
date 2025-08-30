@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): TMaybeAsync<GuardResult> {
-    console.log("@debug:AuthGuard");
+    console.log("@debug middleware AuthGuard");
     // pass or redirect:default
     return (
       this.$auth.isAuth() ||
@@ -39,7 +39,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): TMaybeAsync<GuardResult> {
-    console.log("@debug:AuthGuard:canActivateChild");
     return true;
   }
 }
