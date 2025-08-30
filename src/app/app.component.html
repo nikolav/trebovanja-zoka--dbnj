@@ -4,15 +4,13 @@
       fixedInViewport [fixedTopGap]="0" [fixedBottomGap]="0">
       <button mat-button (click)="$flags.toggle(isActiveSidenav)">toggle</button>
     </mat-sidenav>
-    <mat-sidenav-content class="h-full">
-      <div class="app-nav--main flex flex-wrap *gap-3 justify-around">
-        <a mat-button routerLink="">home</a>
-        <a mat-button routerLink="/app">app</a>
-        <a mat-button routerLink="/demo">demo</a>
-      </div>
+    <mat-sidenav-content class="h-full relative">
+      <!-- @@pages -->
       <div [@routeTransitionBlurInOut]="routeTransitionPrepareOutlet(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>
       </div>
+      <!-- @@main-nav --bottom -->
+      <app-nav-main class="app-nav--main fixed inset-x-0 z-[1] bottom-0" />
     </mat-sidenav-content>
   </mat-sidenav-container>
 </main>

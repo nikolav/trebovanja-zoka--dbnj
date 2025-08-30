@@ -6,7 +6,6 @@ import {
   effect,
   inject,
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import {
   NavigationCancel,
   NavigationEnd,
@@ -27,10 +26,11 @@ import {
 } from "./services";
 import { StoreFlags } from "./stores";
 import { routeTransitionBlurInOut } from "./assets/route-transitions";
+import { AppNavMain } from "./components/app";
 
 @Component({
   selector: "app-root",
-  imports: [CommonModule, RouterModule, MaterialUIModule],
+  imports: [RouterModule, MaterialUIModule, AppNavMain],
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
   providers: [],
@@ -46,13 +46,14 @@ export class AppComponent implements OnInit {
   private $storage = inject(LocalStorageService);
   private $navUtils = inject(NavUtilsService);
 
-  // toggle sidenav flags
-  readonly isActiveSidenav = this.$config.key.IS_ACTIVE_APP_SIDENAV;
-  readonly $flags = inject(StoreFlags);
   // #theme
   private appThemeDark_ = computed(() =>
     String(this.$storage.item(this.$config.key.APP_THEME_DARK) || "")
   );
+
+  // toggle sidenav flags
+  readonly isActiveSidenav = this.$config.key.IS_ACTIVE_APP_SIDENAV;
+  readonly $flags = inject(StoreFlags);
 
   constructor() {
     this.$router.events.subscribe((event) => {
@@ -79,6 +80,7 @@ export class AppComponent implements OnInit {
     });
   }
   ngOnInit() {
+    // @auth redirect
     this.$emitter.subject.subscribe((event) => {
       if (this.$config.events.EVENT_TYPE_AUTH === this.$$.get(event, "type")) {
         const isAuth = event.payload;
@@ -92,9 +94,7 @@ export class AppComponent implements OnInit {
         }
       }
     });
-    //
-    console.log("@debug app.component:ngOnInit");
-    // @next:init:emit
+    // @аpp-init
     setTimeout(() =>
       this.$emitter.subject.next(this.$config.events.EVENT_APP_INIT)
     );
