@@ -1,8 +1,20 @@
 import { NgModule } from "@angular/core";
 
-import { IconAccount, IconBuildings } from "../../components/icons";
+import {
+  IconAccount,
+  IconBuildings,
+  IconLoading,
+  IconCartOutline,
+  IconDoorOpenOutline,
+} from "../../components/icons";
 
-const ICONS = [IconAccount, IconBuildings];
+const ICONS = [
+  IconAccount,
+  IconBuildings,
+  IconLoading,
+  IconCartOutline,
+  IconDoorOpenOutline,
+];
 
 @NgModule({
   // declarations: [],

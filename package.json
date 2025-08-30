@@ -27,6 +27,7 @@
     "@angular/platform-server": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.0.6",
+    "@angular/youtube-player": "^19.2.19",
     "@apollo/client": "^3.0.0",
     "@fancyapps/ui": "^5.0.36",
     "@floating-ui/dom": "^1.7.4",

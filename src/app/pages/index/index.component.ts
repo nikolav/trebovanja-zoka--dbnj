@@ -9,6 +9,7 @@ import {
   AppConfigService,
   EmitterService,
   LocalStorageService,
+  UsePageTitleService,
   UseUtilsService,
 } from "../../services";
 
@@ -31,14 +32,16 @@ export class IndexComponent implements OnInit, OnDestroy {
   $storage = inject(LocalStorageService);
   $emitter = inject(EmitterService);
 
+  $title = inject(UsePageTitleService);
+
   constructor() {}
 
   ok() {
-    const clsDark = this.$config.CLASS_APP_THEME_DARK;
-    const THEME = this.$config.key.APP_THEME_DARK;
-    this.$storage.push({
-      [THEME]: clsDark != this.$storage.item(THEME) ? clsDark : "",
-    });
+    this.$storage.switch(
+      this.$config.key.APP_THEME_DARK,
+      this.$config.CLASS_APP_THEME_DARK,
+      ""
+    );
   }
   ok2() {}
   ngOnInit() {}

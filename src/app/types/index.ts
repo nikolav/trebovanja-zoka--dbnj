@@ -1,17 +1,13 @@
 import { GuardResult, MaybeAsync } from "@angular/router";
-
-import {
+import { type Subscription } from "rxjs";
+import type {
   JsonDataRecord as TRecordJson,
   TJson,
   TJsonLiteral,
 } from "../schemas/json.schema";
-import { type Subscription } from "rxjs";
-
-export * from "./models";
-
-export type { TRecordJson, TJson, TJsonLiteral, MaybeAsync as TMaybeAsync };
 
 export type TOrNoValue<T = any> = T | undefined | null;
+export type THasId<T = any> = T & { id: any };
 export interface IAuthCreds {
   email: string;
   password: string;
@@ -69,3 +65,7 @@ export type PickFileOptions = {
   /** Chrome-only directory pick (non-standard) */
   directory?: boolean; // uses webkitdirectory under the hood
 };
+
+//##
+export type { TRecordJson, TJson, TJsonLiteral, MaybeAsync as TMaybeAsync };
+export * from "./models";
