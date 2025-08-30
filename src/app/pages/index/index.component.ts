@@ -3,8 +3,7 @@ import { JsonPipe } from "@angular/common";
 // import { ReactiveFormsModule } from "@angular/forms";
 
 import { LayoutDefault } from "../../layouts";
-import { MaterialUIModule } from "../../modules";
-import { IconLoading } from "../../components/icons";
+import { IconxModule, MaterialUIModule } from "../../modules";
 import {
   AppConfigService,
   EmitterService,
@@ -12,11 +11,12 @@ import {
   UsePageTitleService,
   UseUtilsService,
 } from "../../services";
+import { StoreAuth } from "../../stores";
 
 @Component({
   selector: "page-index",
   imports: [
-    IconLoading,
+    IconxModule,
     JsonPipe,
     LayoutDefault,
     MaterialUIModule,
@@ -31,6 +31,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   $config = inject(AppConfigService);
   $storage = inject(LocalStorageService);
   $emitter = inject(EmitterService);
+  $auth = inject(StoreAuth)
 
   $title = inject(UsePageTitleService);
 

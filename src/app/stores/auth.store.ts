@@ -24,23 +24,24 @@ import {
 } from "@angular/fire/auth";
 import { QueryRef } from "apollo-angular";
 import { Subscription } from "rxjs";
+import { Socket } from "ngx-socket-io";
 
 import type {
   IAuthCreds,
   TOrNoValue,
   IResultApolloCacheService,
+  IEventApp,
 } from "../types";
 import {
   UseUtilsService,
   UseProccessMonitorService,
   TopicsService,
   CacheService,
-  // EmitterService,
-  // AppConfigService,
+  EmitterService,
+  AppConfigService,
+  UseUniqueIdService,
 } from "../services";
 import { schemaJwt } from "../schemas";
-import { Socket } from "ngx-socket-io";
-
 import { URL_AUTH_authenticate } from "../config";
 
 @Injectable({
@@ -54,9 +55,12 @@ export class StoreAuth implements OnDestroy {
   private $$ = inject(UseUtilsService);
   private $topics = inject(TopicsService);
   private $cache = inject(CacheService);
-  // private $config = inject(AppConfigService);
-  // private $emitter = inject(EmitterService);
+  private $config = inject(AppConfigService);
+  private $emitter = inject(EmitterService);
   private $ps = new UseProccessMonitorService();
+
+  // update to run effect to signal app:logout
+  private $uniqIdLogout = new UseUniqueIdService();
 
   private profile_q: TOrNoValue<QueryRef<IResultApolloCacheService>> = null;
 
@@ -148,6 +152,23 @@ export class StoreAuth implements OnDestroy {
         this.access_token.set(null);
       });
     });
+    // emit:IEventApp @auth
+    effect(() => {
+      if (this.isAuth()) {
+        this.$emitter.subject.next(<IEventApp>{
+          type: this.$config.events.EVENT_TYPE_AUTH,
+          payload: true,
+        });
+        return;
+      }
+      // @logout()
+      if (!this.isAuth() && this.$uniqIdLogout.ID()) {
+        this.$emitter.subject.next(<IEventApp>{
+          type: this.$config.events.EVENT_TYPE_AUTH,
+          payload: false,
+        });
+      }
+    });
   }
 
   async authenticate(creds: IAuthCreds) {
@@ -204,6 +225,7 @@ export class StoreAuth implements OnDestroy {
     if (!this.$ps.error())
       this.$ps.successful(() => {
         // @success --auth-logout
+        this.$uniqIdLogout.next();
       });
     console.log("@debug --auth-logout", this.$ps.error());
   }

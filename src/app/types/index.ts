@@ -49,12 +49,13 @@ export interface IResultCollectionsDocs {
   };
 }
 
-export interface IEventOnStorage {
+export interface IEventApp {
   type: string;
   payload: any;
+}
+export interface IEventOnStorage extends IEventApp {
   action: "push" | "drop";
 }
-
 export type PickFileOptions = {
   /** Accept attribute: e.g. "image/*,.pdf,.csv" */
   accept?: string;

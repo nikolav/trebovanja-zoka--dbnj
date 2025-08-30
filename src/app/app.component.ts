@@ -23,6 +23,7 @@ import {
   AppConfigService,
   UseUtilsService,
   LocalStorageService,
+  NavUtilsService,
 } from "./services";
 import { StoreFlags } from "./stores";
 import { routeTransitionBlurInOut } from "./assets/route-transitions";
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit {
   private $config = inject(AppConfigService);
   private $emitter = inject(EmitterService);
   private $storage = inject(LocalStorageService);
+  private $navUtils = inject(NavUtilsService);
 
   // toggle sidenav flags
   readonly isActiveSidenav = this.$config.key.IS_ACTIVE_APP_SIDENAV;
@@ -77,6 +79,20 @@ export class AppComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.$emitter.subject.subscribe((event) => {
+      if (this.$config.events.EVENT_TYPE_AUTH === this.$$.get(event, "type")) {
+        const isAuth = event.payload;
+        if (isAuth) {
+          this.$router.navigate([
+            this.$config.app.ROUTE_PATH_REDIRECT_ATHENTICATED,
+          ]);
+          return;
+        } else {
+          this.$navUtils.hardReload();
+        }
+      }
+    });
+    //
     console.log("@debug app.component:ngOnInit");
     // @next:init:emit
     setTimeout(() =>
