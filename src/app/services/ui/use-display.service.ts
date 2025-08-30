@@ -1,6 +1,6 @@
 import { Injectable, computed, inject, signal } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
-import { Subject, Subscription, fromEvent } from "rxjs";
+import { Observable, Subject, Subscription, fromEvent } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
 import { TOrNoValue } from "../../types";
@@ -88,5 +88,17 @@ export class UseDisplayService {
     this.width_s?.unsubscribe();
     this._destroyed.next();
     this._destroyed.complete();
+  }
+  //
+  // #ui
+  onView() {
+    return new Observable((observer) => {
+      requestAnimationFrame(() =>
+        setTimeout(() => {
+          observer.next(null);
+          observer.complete();
+        })
+      );
+    });
   }
 }

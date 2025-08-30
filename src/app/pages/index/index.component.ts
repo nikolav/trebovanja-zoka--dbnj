@@ -6,9 +6,9 @@ import { LayoutDefault } from "../../layouts";
 import { MaterialUIModule } from "../../modules";
 import { IconLoading } from "../../components/icons";
 import {
-  PickFilesService,
-  FilesStorageService,
-  DocsService,
+  AppConfigService,
+  EmitterService,
+  LocalStorageService,
   UseUtilsService,
 } from "../../services";
 
@@ -27,27 +27,20 @@ import {
 })
 export class IndexComponent implements OnInit, OnDestroy {
   $$ = inject(UseUtilsService);
-  $docs = new DocsService().use("main");
+  $config = inject(AppConfigService);
+  $storage = inject(LocalStorageService);
+  $emitter = inject(EmitterService);
 
   constructor() {}
 
   ok() {
-    console.log(this.$docs.data());
+    const clsDark = this.$config.CLASS_APP_THEME_DARK;
+    const THEME = this.$config.key.APP_THEME_DARK;
+    this.$storage.push({
+      [THEME]: clsDark != this.$storage.item(THEME) ? clsDark : "",
+    });
   }
-  ok2() {
-    // this.$docs.drop("upndkyfmsal").subscribe((res) => {
-    //   console.log({ res });
-    // });
-    this.$docs
-      .commit({
-        // id: "128W5y63cRu5qSQeDqW0",
-        name: `x:${this.$$.idGen()}`,
-        value: Math.random(),
-      })
-      .subscribe((res) => {
-        console.log({ res });
-      });
-  }
+  ok2() {}
   ngOnInit() {}
   ngOnDestroy() {}
 }
