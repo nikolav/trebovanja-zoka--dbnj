@@ -1,7 +1,24 @@
 <app-layout-default>
   <section class="page--auth">
-    <button mat-flat-button
-      (click)="$auth.authenticate({ 'email': 'admin@nikolav.rs', 'password': 'admin@nikolav.rs' })">auth:login</button>
-    <button mat-flat-button (click)="$auth.logout()">auth:logout</button>
+    <!-- @@auth:card -->
+    <div class="_placer_ w-full max-w-[596px] mx-auto mt-32">
+      <mat-card class="mx-1 !app-surface-container">
+        <mat-card-header class="flex items-center">
+          <icon-lock-open size="1.33rem" class="opacity-[.33] !inline" />
+          <span class="ms-2 italic translate-y-[2px] opacity-85">
+            Prijava:
+          </span>
+        </mat-card-header>
+        <mat-card-content>
+
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora illum minima officiis.
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-flat-button
+            (click)="$auth.authenticate({ 'email': 'admin@nikolav.rs', 'password': 'admin@nikolav.rs' })">auth:login</button>
+          <button mat-flat-button (click)="$auth.logout()">auth:logout</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </section>
 </app-layout-default>

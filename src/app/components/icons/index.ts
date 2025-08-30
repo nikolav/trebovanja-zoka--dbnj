@@ -3,3 +3,4 @@ export { IconBuildingsComponent as IconBuildings } from "./icon-buildings/icon-b
 export { IconLoadingComponent as IconLoading } from "./icon-loading/icon-loading.component";
 export { IconCartOutlineComponent as IconCartOutline } from "./icon-cart-outline/icon-cart-outline.component";
 export { IconDoorOpenOutlineComponent as IconDoorOpenOutline } from "./icon-door-open-outline/icon-door-open-outline.component";
+export { IconLockOpenComponent } from "./icon-lock-open/icon-lock-open.component";

@@ -6,6 +6,7 @@ import {
   IconLoading,
   IconCartOutline,
   IconDoorOpenOutline,
+  IconLockOpenComponent,
 } from "../../components/icons";
 
 const ICONS = [

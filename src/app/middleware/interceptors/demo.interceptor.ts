@@ -13,7 +13,7 @@ export const demoInterceptor: HttpInterceptorFn = (req, next) => {
     tap((event) => {
       if (HttpEventType.Response !== event.type) return;
       console.log("@debug --demoInterceptor --logResponseInterceptor");
-      console.log(event);
+      console.log({ event });
     })
   );
 };
