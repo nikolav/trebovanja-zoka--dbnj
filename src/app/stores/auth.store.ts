@@ -193,7 +193,7 @@ export class StoreAuth implements OnDestroy {
     } else {
       onError(this.$ps.error());
     }
-    console.log("@debug --auth-login", this.$ps.error());
+    console.log("@debug --auth-login --error", this.$ps.error());
     return res;
   }
   async register(creds: IAuthCreds) {

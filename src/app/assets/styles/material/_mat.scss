@@ -39,30 +39,30 @@
 // =====================
 :root {
   // ==theme:overrides
-  @include mat.theme-overrides(
-    (
-      // primary: #ebdcff,
-      // on-primary: #230f46,
-      // body-medium: 500 1.15rem/1.3rem Arial,
-      // corner-large: 32px,
-      // level3: 0 4px 6px 1px var(--mat-sys-surface-dim),
-      // primary-container: #84ffff,
-    )
-  );
-  // ==component:overrides button
-  @include mat.button-overrides(
-    (
-      //
-      // filled-container-shape: 0.22rem,
-    )
-  );
-  // ==component:overrides card
-  @include mat.card-overrides(
-    (
-      //
-      elevated-container-color: var(--mat-sys-surface-container-lowest)
-    )
-  );
+  // @include mat.theme-overrides(
+  //   (
+  //     // primary: #ebdcff,
+  //     // on-primary: #230f46,
+  //     // body-medium: 500 1.15rem/1.3rem Arial,
+  //     // corner-large: 32px,
+  //     // level3: 0 4px 6px 1px var(--mat-sys-surface-dim),
+  //     // primary-container: #84ffff,
+  //   )
+  // );
+  // // ==component:overrides button
+  // @include mat.button-overrides(
+  //   (
+  //     //
+  //     // filled-container-shape: 0.22rem,
+  //   )
+  // );
+  // // ==component:overrides card
+  // @include mat.card-overrides(
+  //   (
+  //     //
+  //     // elevated-container-color: var(--mat-sys-surface-container-lowest)
+  //   )
+  // );
   // ==component:overrides sidenav
   @include mat.sidenav-overrides(
     (
@@ -131,6 +131,14 @@
     (
       container-color: var(--mat-sys-error),
       button-color: var(--mat-sys-on-error),
+    )
+  );
+}
+.app-card-flat {
+  @include mat.card-overrides(
+    (
+      elevated-container-color: transparent,
+      elevated-container-elevation: 0,
     )
   );
 }

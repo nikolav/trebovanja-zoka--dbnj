@@ -10,7 +10,9 @@
         <router-outlet #outlet="outlet"></router-outlet>
       </div>
       <!-- @@main-nav --bottom -->
+      @if (!toggleAppNavHidden.isActive()) {
       <app-nav-main class="app-nav--main fixed inset-x-0 z-[1] bottom-0" />
+      }
     </mat-sidenav-content>
   </mat-sidenav-container>
 </main>

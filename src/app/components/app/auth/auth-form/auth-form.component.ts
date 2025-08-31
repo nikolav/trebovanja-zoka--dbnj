@@ -18,7 +18,6 @@ export class AuthFormComponent {
   togglePasswordHidden = new UseToggleFlagService().use(true);
   //
   onSubmit() {
-    let error;
     try {
       const creds = schemaAuthCreds.parse({
         email: this.email(),
@@ -27,8 +26,6 @@ export class AuthFormComponent {
       this.onAuth.emit(creds);
     } catch (e) {
       // pass
-      error = e;
     }
-    console.log({ "auth:error": error });
   }
 }

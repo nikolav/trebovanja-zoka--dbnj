@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import lodash from "lodash";
 import { v4 as uuid } from "uuid";
 import md5 from "md5";
+import urlParse from "url-parse";
+import qs from "qs";
 
 // #https://github.com/validatorjs/validator.js
 import isEmail from "validator/es/lib/isEmail";
@@ -123,6 +125,10 @@ export class UseUtilsService {
   uniqueId = uniqueId;
   unset = unset;
   untilDestroyed = untilDestroyed;
+
+  // urls, paths
+  urlParse = urlParse;
+  qs = qs;
 
   // sprint-js
   sprintf = sprintf;

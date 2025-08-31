@@ -23,6 +23,7 @@ import {
   UseUtilsService,
   LocalStorageService,
   NavUtilsService,
+  UseToggleFlagService,
 } from "./services";
 import { StoreFlags } from "./stores";
 import { routeTransitionBlurInOut } from "./assets/route-transitions";
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit {
   private appThemeDark_ = computed(() =>
     String(this.$storage.item(this.$config.key.APP_THEME_DARK) || "")
   );
+  readonly toggleAppNavHidden = new UseToggleFlagService().use(true);
 
   // toggle sidenav flags
   readonly isActiveSidenav = this.$config.key.IS_ACTIVE_APP_SIDENAV;
@@ -76,6 +78,20 @@ export class AppComponent implements OnInit {
         this.$renderer.removeClass(document.querySelector("html"), clsDark);
       } else {
         this.$renderer.addClass(document.querySelector("html"), clsDark);
+      }
+    });
+    // @nav test if app nav hidden
+    this.$emitter.subject.subscribe((event) => {
+      if (this.$config.events.ROUTER_NAVIGATION_END === event) {
+        this.toggleAppNavHidden.toggle(
+          this.$config.app.PATHS_APP_NAV_HIDDEN.some((re) =>
+            re.test(
+              this.$$.urlParse(this.$router.routerState.snapshot.url)[
+                "pathname"
+              ]
+            )
+          )
+        );
       }
     });
   }

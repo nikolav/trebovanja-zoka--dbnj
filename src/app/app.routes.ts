@@ -33,7 +33,9 @@ export const routes: Routes = [
   {
     path: "auth",
     component: PageAuth,
-    data: { animation: "67f71b4a-f48c-5cd5-b3dc-0b13bee691d0" },
+    data: {
+      animation: "67f71b4a-f48c-5cd5-b3dc-0b13bee691d0",
+    },
     canActivate: [unauthenticatedGuard],
   },
   {
