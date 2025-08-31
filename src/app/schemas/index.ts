@@ -16,3 +16,8 @@ export const schemaStoragePatch = z.record(
   schemaStoragePatchField,
   z.any().nullish()
 );
+
+export const schemaAuthCreds = z.object({
+  email: z.string().email(),
+  password: z.string().nonempty(),
+});

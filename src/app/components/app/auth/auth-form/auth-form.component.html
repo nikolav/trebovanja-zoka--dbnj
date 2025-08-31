@@ -1,0 +1,46 @@
+<mat-card class="mx-1 !app-surface-bright">
+  <form (ngSubmit)="onSubmit()" autocomplete="off">
+    <!-- @@header -->
+    <mat-card-header>
+      <div class="flex items-center ps-1">
+        <span>
+          <icon-lock-open size="1.55rem" class="opacity-[.33]" />
+        </span>
+        <mat-card-title class="!ms-3 italic">
+          Prijava:
+        </mat-card-title>
+      </div>
+    </mat-card-header>
+
+    <!-- @@form -->
+    <mat-card-content class="!p-6">
+      <div class="flex flex-col items-center">
+        <mat-form-field floatLabel="always" class="app-mat-form-field-underline w-full">
+          <mat-label>Email </mat-label>
+          <input class="placeholder:!opacity-35 placeholder:italic" required placeholder="korisnik@email.com"
+            name="email" [(ngModel)]="email" type="email" matInput>
+          <icon-envelope matPrefix size="1.33rem" class="*:mt-4 opacity-[.33]" />
+        </mat-form-field>
+        <mat-form-field floatLabel="always" class="app-mat-form-field-underline w-full">
+          <mat-label>Lozinka </mat-label>
+          <input required name="password" [(ngModel)]="password"
+            [type]="togglePasswordHidden.isActive() ? 'password' : 'text'" matInput>
+          <icon-key matPrefix size="1.33rem" class="*:mt-4 opacity-[.33]" />
+          <button (click)="togglePasswordHidden.toggle()" type="button" matSuffix mat-icon-button
+            class="mt-4 opacity-50">
+            @if (togglePasswordHidden.isActive()) {
+            <icon-eye size="1.55rem" />
+            } @else {
+            <icon-eye-off size="1.55rem" />
+            }
+          </button>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="!p-4" align="end">
+      <button mat-flat-button type="submit" class="!text-lg !py-6 !px-10 !me-3">
+        OK
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

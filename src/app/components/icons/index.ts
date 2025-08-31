@@ -4,3 +4,7 @@ export { IconLoadingComponent as IconLoading } from "./icon-loading/icon-loading
 export { IconCartOutlineComponent as IconCartOutline } from "./icon-cart-outline/icon-cart-outline.component";
 export { IconDoorOpenOutlineComponent as IconDoorOpenOutline } from "./icon-door-open-outline/icon-door-open-outline.component";
 export { IconLockOpenComponent } from "./icon-lock-open/icon-lock-open.component";
+export { IconEnvelopeComponent } from "./icon-envelope/icon-envelope.component";
+export { IconKeyComponent } from "./icon-key/icon-key.component";
+export { IconEyeComponent } from "./icon-eye/icon-eye.component";
+export { IconEyeOffComponent } from "./icon-eye-off/icon-eye-off.component";

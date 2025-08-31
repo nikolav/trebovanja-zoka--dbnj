@@ -1,1 +1,2 @@
-export { AppNavMainComponent as AppNavMain } from "./nav/app-nav-main/app-nav-main.component";
+export * from "./nav";
+export * from "./auth";

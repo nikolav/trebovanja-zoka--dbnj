@@ -126,3 +126,11 @@
     )
   );
 }
+.app-mat-snackbar-danger {
+  @include mat.snack-bar-overrides(
+    (
+      container-color: var(--mat-sys-error),
+      button-color: var(--mat-sys-on-error),
+    )
+  );
+}

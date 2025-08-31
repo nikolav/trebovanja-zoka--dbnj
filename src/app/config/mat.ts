@@ -1,3 +1,4 @@
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from "@angular/material/snack-bar";
 // import {
 //   MAT_CHECKBOX_DEFAULT_OPTIONS,
 //   MatCheckboxDefaultOptions,
@@ -6,6 +7,10 @@
 // import { MAT_DIALOG_DEFAULT_OPTIONS } from "@angular/material/dialog";
 
 export const MAT_OPIONS = [
+  {
+    provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+    useValue: { verticalPosition: "top", duration: 7890 },
+  },
   // {
   //   provide: MAT_CHECKBOX_DEFAULT_OPTIONS,
   //   useValue: { clickAction: "noop" } as MatCheckboxDefaultOptions,

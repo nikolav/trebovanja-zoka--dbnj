@@ -3,9 +3,13 @@ import { NgModule } from "@angular/core";
 import {
   IconAccount,
   IconBuildings,
-  IconLoading,
   IconCartOutline,
   IconDoorOpenOutline,
+  IconEnvelopeComponent,
+  IconEyeComponent,
+  IconEyeOffComponent,
+  IconKeyComponent,
+  IconLoading,
   IconLockOpenComponent,
 } from "../../components/icons";
 
@@ -15,6 +19,11 @@ const ICONS = [
   IconLoading,
   IconCartOutline,
   IconDoorOpenOutline,
+  IconLockOpenComponent,
+  IconEnvelopeComponent,
+  IconKeyComponent,
+  IconEyeComponent,
+  IconEyeOffComponent,
 ];
 
 @NgModule({
