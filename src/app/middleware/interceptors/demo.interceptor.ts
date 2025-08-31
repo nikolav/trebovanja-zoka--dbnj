@@ -5,13 +5,14 @@ export const demoInterceptor: HttpInterceptorFn = (req, next) => {
   // runs for *requests
   // # can send modified request
   //  req_mod = req.clone({..fields});
-
+  console.log("@debug --demoInterceptor --log-request");
+  console.log(req);
   return next(req).pipe(
     // # access .response:event
     tap((event) => {
       if (HttpEventType.Response !== event.type) return;
-      console.log("@debug --log-response-interceptor");
-      console.log({ event });
+      console.log("@debug --demoInterceptor --log-response");
+      console.log(event);
     })
   );
 };

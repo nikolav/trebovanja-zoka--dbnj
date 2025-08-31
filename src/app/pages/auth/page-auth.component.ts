@@ -31,12 +31,10 @@ export class PageAuthComponent {
   $snackbar = inject(MatSnackBar);
   //
   onAuth(creds: IAuthCreds) {
-    this.$auth.authenticate(creds, (error: any) => {
-      if (error) {
-        this.$snackbar.open("Pokušajte ponovo.", "OK", {
-          panelClass: "app-mat-snackbar-danger",
-        });
-      }
+    this.$auth.authenticate(creds, (_error: any) => {
+      this.$snackbar.open("Pokušajte ponovo.", "OK", {
+        panelClass: "app-mat-snackbar-danger",
+      });
     });
   }
 }

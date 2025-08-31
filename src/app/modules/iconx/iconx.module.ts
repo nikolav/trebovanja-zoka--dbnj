@@ -8,6 +8,7 @@ import {
   IconEnvelopeComponent,
   IconEyeComponent,
   IconEyeOffComponent,
+  IconHomeComponent,
   IconKeyComponent,
   IconLoading,
   IconLockOpenComponent,
@@ -24,6 +25,7 @@ const ICONS = [
   IconKeyComponent,
   IconEyeComponent,
   IconEyeOffComponent,
+  IconHomeComponent,
 ];
 
 @NgModule({
