@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 
-import { PageIndex, PageNotFound, PageAuth } from "./pages";
+import { PageIndex, PageNotFound, PageAuth, PageAccount } from "./pages";
 import {
   AuthGuard,
   // FooDeactivateGuard
@@ -37,6 +37,14 @@ export const routes: Routes = [
       animation: "67f71b4a-f48c-5cd5-b3dc-0b13bee691d0",
     },
     canActivate: [unauthenticatedGuard],
+  },
+  {
+    path: "account",
+    component: PageAccount,
+    canActivate: [AuthGuard],
+    data: {
+      animation: "8eeb01ae-dcf2-5579-a323-b5f147cea137",
+    },
   },
   {
     path: "not-found",

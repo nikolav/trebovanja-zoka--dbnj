@@ -1,23 +1,4 @@
 <app-layout-default>
   <section class="page--index">
-    <h2>
-      &#64;page--index
-    </h2>
-    <button mat-raised-button (click)="ok()">ok</button>
-    <button mat-raised-button (click)="$auth.logout()">auth:logout</button>
-
-    <div>
-      <p>
-        <small>
-          <pre>{{ $auth.account() | json }}</pre>
-        </small>
-      </p>
-      <p>
-        <small>
-          <pre>{{ $auth.profile() | json }}</pre>
-        </small>
-      </p>
-    </div>
-
   </section>
 </app-layout-default>

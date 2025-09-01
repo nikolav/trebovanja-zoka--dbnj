@@ -9,3 +9,4 @@ export { IconKeyComponent } from "./icon-key/icon-key.component";
 export { IconEyeComponent } from "./icon-eye/icon-eye.component";
 export { IconEyeOffComponent } from "./icon-eye-off/icon-eye-off.component";
 export { IconHomeComponent } from "./icon-home/icon-home.component";
+export { IconLogoutComponent } from "./icon-logout/icon-logout.component";
