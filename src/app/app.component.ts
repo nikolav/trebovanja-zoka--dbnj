@@ -58,8 +58,8 @@ export class AppComponent implements OnInit {
   readonly $flags = inject(StoreFlags);
 
   constructor() {
+    // @route:emit
     this.$router.events.subscribe((event) => {
-      // @route-change:emit
       if (event instanceof NavigationStart)
         this.$emitter.subject.next(this.$config.events.ROUTER_NAVIGATION_START);
       if (

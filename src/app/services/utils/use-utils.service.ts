@@ -10,20 +10,21 @@ import qs from "qs";
 import isEmail from "validator/es/lib/isEmail";
 import isURL from "validator/es/lib/isURL";
 import isJWT from "validator/es/lib/isJWT";
+import isDataURI from "validator/es/lib/isDataURI";
 
 // #https://github.com/alexei/sprintf.js#readme
 import { sprintf, vsprintf } from "sprintf-js";
 
 import {
   coreHasOwn,
-  isNumeric,
-  idGen,
-  parseShellInput,
-  dumpJson,
-  coreType,
   cat,
-  onDebug,
+  coreType,
   deepmerge,
+  dumpJson,
+  idGen,
+  isNumeric,
+  onDebug,
+  parseShellInput,
   untilDestroyed,
 } from "../../utils";
 
@@ -75,46 +76,58 @@ const {
   providedIn: "root",
 })
 export class UseUtilsService {
-  // validator
-  isEmail = isEmail;
-  isURL = isURL;
-  isJWT = isJWT;
-
-  // lodash
   assign = assign;
+  cat = cat;
   clone = clone;
+  coreHasOwn = coreHasOwn;
+  coreType = coreType;
+  Date = Date;
   debounce = debounce;
   deepmerge = deepmerge;
+  dumpJson = dumpJson;
   each = each;
   escapeRegExp = escapeRegExp;
   every = every;
+  False = () => false;
   filter = filter;
   find = find;
   findKey = findKey;
   first = first;
   get = get;
   has = has;
+  idGen = idGen;
   includes = includes;
+  isDataURI = isDataURI;
+  isEmail = isEmail;
   isEmpty = isEmpty;
   isEqual = isEqual;
+  isJWT = isJWT;
+  isNumeric = isNumeric;
   isString = isString;
+  isURL = isURL;
+  JSON = JSON;
   kebabCase = kebabCase;
   last = last;
   len = len;
   map = map;
+  Math = Math;
   md5 = md5;
   merge = merge;
   noop = noop;
   omit = omit;
   once = once;
+  onDebug = onDebug;
   owns = owns;
+  parseShellInput = parseShellInput;
   pick = pick;
+  qs = qs;
   range = range;
   reduce = reduce;
   sample = sample;
   set = set;
   shuffle = shuffle;
   some = some;
+  sprintf = sprintf;
   startCase = startCase;
   take = take;
   takeRight = takeRight;
@@ -122,35 +135,11 @@ export class UseUtilsService {
   trim = trim;
   trimEnd = trimEnd;
   trimStart = trimStart;
+  True = () => true;
   uniqueId = uniqueId;
   unset = unset;
   untilDestroyed = untilDestroyed;
-
-  // urls, paths
   urlParse = urlParse;
-  qs = qs;
-
-  // sprint-js
-  sprintf = sprintf;
-  vsprintf = vsprintf;
-
-  // uuid
   uuid = uuid;
-
-  // local
-  dumpJson = dumpJson;
-  coreHasOwn = coreHasOwn;
-  parseShellInput = parseShellInput;
-  idGen = idGen;
-  True = () => true;
-  False = () => false;
-  isNumeric = isNumeric;
-  coreType = coreType;
-  cat = cat;
-  onDebug = onDebug;
-
-  // globals
-  Math = Math;
-  Date = Date;
-  JSON = JSON;
+  vsprintf = vsprintf;
 }

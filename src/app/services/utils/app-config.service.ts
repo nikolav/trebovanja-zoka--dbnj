@@ -32,7 +32,7 @@ export class AppConfigService {
   app = {
     PATHS_APP_NAV_HIDDEN: <RegExp[]>[
       // match paths to skip showing app nav
-      /^\/auth$/i,
+      /^\/auth(\/.*)?/i,
     ],
     PROCESSING: `PROCESSING:510e66b5-2880-5c7a-ae49-aa2f191d2bcc`,
     ROUTE_PATH_REDIRECT_UNATHENTICATED: "/auth",
