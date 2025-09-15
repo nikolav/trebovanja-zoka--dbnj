@@ -10,3 +10,5 @@ export { IconEyeComponent } from "./icon-eye/icon-eye.component";
 export { IconEyeOffComponent } from "./icon-eye-off/icon-eye-off.component";
 export { IconHomeComponent } from "./icon-home/icon-home.component";
 export { IconLogoutComponent } from "./icon-logout/icon-logout.component";
+export { IconFactoryComponent } from "./icon-factory/icon-factory.component";
+export { IconStorefrontOutlineComponent } from "./icon-storefront-outline/icon-storefront-outline.component";

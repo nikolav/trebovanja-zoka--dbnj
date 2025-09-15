@@ -4,16 +4,11 @@ import { Component, OnInit, OnDestroy, inject } from "@angular/core";
 import { LayoutDefault } from "../../layouts";
 import { IconxModule, MaterialUIModule } from "../../modules";
 import { UseUtilsService } from "../../services";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "page-index",
-  imports: [
-    IconxModule,
-    LayoutDefault,
-    MaterialUIModule,
-    // JsonPipe,
-    // ReactiveFormsModule,
-  ],
+  imports: [IconxModule, LayoutDefault, MaterialUIModule, RouterLink],
   templateUrl: "./index.component.html",
   styleUrl: "./index.component.scss",
   providers: [],

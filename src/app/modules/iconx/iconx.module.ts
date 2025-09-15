@@ -13,6 +13,8 @@ import {
   IconLoading,
   IconLockOpenComponent,
   IconLogoutComponent,
+  IconFactoryComponent,
+  IconStorefrontOutlineComponent,
 } from "../../components/icons";
 
 const ICONS = [
@@ -28,6 +30,8 @@ const ICONS = [
   IconEyeOffComponent,
   IconHomeComponent,
   IconLogoutComponent,
+  IconFactoryComponent,
+  IconStorefrontOutlineComponent,
 ];
 
 @NgModule({
