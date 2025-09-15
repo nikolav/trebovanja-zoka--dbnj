@@ -1,6 +1,14 @@
 import { Routes } from "@angular/router";
 
-import { PageIndex, PageNotFound, PageAuth, PageAccount } from "./pages";
+import {
+  PageAccount,
+  PageAuth,
+  PageIndex,
+  PageNotFound,
+  PageOrders,
+  PageProducts,
+  PageStores,
+} from "./pages";
 import {
   AuthGuard,
   // FooDeactivateGuard
@@ -44,6 +52,30 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       animation: "8eeb01ae-dcf2-5579-a323-b5f147cea137",
+    },
+  },
+  {
+    path: "stores",
+    component: PageStores,
+    canActivate: [AuthGuard],
+    data: {
+      animation: "d8408ce9-3c6d-54b8-8246-6a32fb17221b",
+    },
+  },
+  {
+    path: "products",
+    component: PageProducts,
+    canActivate: [AuthGuard],
+    data: {
+      animation: "a456451a-f714-568e-b1cd-b4cc8230f1c1",
+    },
+  },
+  {
+    path: "orders",
+    component: PageOrders,
+    canActivate: [AuthGuard],
+    data: {
+      animation: "ea16832b-c04f-515c-8ea2-6da5ad9935a7",
     },
   },
   {

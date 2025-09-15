@@ -1,30 +1,19 @@
 <app-layout-default>
   <section class="page--index">
-    <div class="__spacer__ max-w-md mx-auto space-y-3 mt-3 mb-24">
+    <button mat-fab class="!rounded-full !fixed bottom-24 end-12 z-[1] !app-bg-primary !app-color-on-primary">
+      <icon-invoice-add-outline size="1.55rem" />
+    </button>
+    <div class="__spacer__ max-w-md mx-auto space-y-3 mt-3 mb-36">
+      @for (node of links; track node.title) {
       <mat-card class="overflow-hidden !bg-transparent">
-        <a routerLink="/stores">
-          <img mat-card-image src="/hznteiifpyr.png" />
+        <a [routerLink]="node.route">
+          <img mat-card-image [src]="node.image" />
           <mat-card-header class="!p-4">
-            <mat-card-title>Proizvođači</mat-card-title>
+            <mat-card-title>{{ node.title }}</mat-card-title>
           </mat-card-header>
         </a>
       </mat-card>
-      <mat-card class="overflow-hidden !bg-transparent">
-        <a routerLink="/products">
-          <img mat-card-image src="/dgmttbnxzyj.png" />
-          <mat-card-header class="!p-4">
-            <mat-card-title>Roba</mat-card-title>
-          </mat-card-header>
-        </a>
-      </mat-card>
-      <mat-card class="overflow-hidden !bg-transparent">
-        <a routerLink="/orders">
-          <img mat-card-image src="/jladxkcmtyl.png" />
-          <mat-card-header class="!p-4">
-            <mat-card-title>Narudžbenice</mat-card-title>
-          </mat-card-header>
-        </a>
-      </mat-card>
+      }
     </div>
   </section>
 </app-layout-default>

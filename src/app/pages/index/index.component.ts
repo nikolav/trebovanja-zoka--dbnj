@@ -15,6 +15,23 @@ import { RouterLink } from "@angular/router";
 })
 export class IndexComponent implements OnInit, OnDestroy {
   $$ = inject(UseUtilsService);
+  links = [
+    {
+      title: "Proizvođači",
+      route: "/stores",
+      image: "/hznteiifpyr.png",
+    },
+    {
+      title: "Roba",
+      route: "/products",
+      image: "/dgmttbnxzyj.png",
+    },
+    {
+      title: "Narudžbenice",
+      route: "/orders",
+      image: "/jladxkcmtyl.png",
+    },
+  ];
 
   ngOnInit() {}
   ngOnDestroy() {}
