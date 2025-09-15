@@ -1,13 +1,13 @@
 <app-layout-default>
   <section class="page--index">
-    <button mat-fab class="!rounded-full !fixed bottom-24 end-12 z-[1] !app-bg-primary !app-color-on-primary">
+    <button mat-fab class="!rounded-full !fixed bottom-20 end-10 z-[1] !app-bg-primary !app-color-on-primary">
       <icon-invoice-add-outline size="1.55rem" />
     </button>
-    <div class="__spacer__ max-w-md mx-auto space-y-3 mt-3 mb-36">
+    <div class="__spacer__ max-w-md mx-auto space-y-4 mt-3 mb-36">
       @for (node of links; track node.title) {
-      <mat-card class="overflow-hidden !bg-transparent">
+      <mat-card class="overflow-hidden !bg-transparent mx-1">
         <a [routerLink]="node.route">
-          <img mat-card-image [src]="node.image" />
+          <img mat-card-image [src]="node.image" class="h-56 w-full object-cover object-top" />
           <mat-card-header class="!p-4">
             <mat-card-title>{{ node.title }}</mat-card-title>
           </mat-card-header>
