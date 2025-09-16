@@ -1,8 +1,9 @@
 <app-layout-default>
   <section class="page--index">
-    <button mat-fab class="!rounded-full !fixed bottom-20 end-10 z-[1] !app-bg-primary !app-color-on-primary">
+    <a routerLink="/orders-new" mat-fab
+      class="!rounded-full !fixed bottom-20 end-10 z-[1] !app-bg-primary !app-color-on-primary">
       <icon-invoice-add-outline size="1.55rem" />
-    </button>
+    </a>
     <div class="__spacer__ max-w-md mx-auto space-y-4 mt-3 mb-36">
       @for (node of links; track node.title) {
       <mat-card class="overflow-hidden !bg-transparent mx-1">

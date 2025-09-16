@@ -13,3 +13,4 @@ export { IconLogoutComponent } from "./icon-logout/icon-logout.component";
 export { IconFactoryComponent } from "./icon-factory/icon-factory.component";
 export { IconStorefrontOutlineComponent } from "./icon-storefront-outline/icon-storefront-outline.component";
 export { IconInvoiceAddOutlineComponent } from "./icon-invoice-add-outline/icon-invoice-add-outline.component";
+export { IconStoreAddComponent } from "./icon-store-add/icon-store-add.component";

@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
 import { LayoutDefault } from "../../layouts";
-import { MaterialUIModule } from "../../modules";
+import { IconxModule, MaterialUIModule } from "../../modules";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-stores",
-  imports: [LayoutDefault, MaterialUIModule],
+  imports: [LayoutDefault, MaterialUIModule, IconxModule, RouterLink],
   templateUrl: "./stores.component.html",
   styleUrl: "./stores.component.scss",
 })

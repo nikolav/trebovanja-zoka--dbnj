@@ -5,3 +5,5 @@ export { AccountComponent as PageAccount } from "./account/account.component";
 export { StoresComponent as PageStores } from "./stores/stores.component";
 export { MerchandiseComponent as PageProducts } from "./merchandise/merchandise.component";
 export { OrdersComponent as PageOrders } from "./orders/orders.component";
+export { StoresAddComponent as PageStoresAdd } from "./stores-add/stores-add.component";
+export { OrdersNewComponent as PageOrdersNew } from "./orders-new/orders-new.component";
