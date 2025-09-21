@@ -28,6 +28,7 @@ import {
 import { StoreFlags } from "./stores";
 import { routeTransitionBlurInOut } from "./assets/route-transitions";
 import { AppNavMain } from "./components/app";
+import { AppProcessingService } from "./stores/app-processing.service";
 
 @Component({
   selector: "app-root",
@@ -46,16 +47,17 @@ export class AppComponent implements OnInit {
   private $emitter = inject(EmitterService);
   private $storage = inject(LocalStorageService);
   private $navUtils = inject(NavUtilsService);
+  readonly $appProcessing = inject(AppProcessingService);
+  readonly toggleAppNavHidden = new UseToggleFlagService().use(true);
+  readonly $flags = inject(StoreFlags);
 
   // #theme
   private appThemeDark_ = computed(() =>
     String(this.$storage.item(this.$config.key.APP_THEME_DARK) || "")
   );
-  readonly toggleAppNavHidden = new UseToggleFlagService().use(true);
 
   // toggle sidenav flags
   readonly isActiveSidenav = this.$config.key.IS_ACTIVE_APP_SIDENAV;
-  readonly $flags = inject(StoreFlags);
 
   constructor() {
     // @route:emit

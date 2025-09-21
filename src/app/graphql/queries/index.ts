@@ -20,3 +20,10 @@ export const Q_collectionsDocsByTopic = gql`
     collectionsDocsByTopic(topic: $topic, config: $config)
   }
 `;
+
+// assetsStoresList: JsonData!
+export const Q_assetsStoresList = gql`
+  query q_assetsStoresList {
+    assetsStoresList
+  }
+`;

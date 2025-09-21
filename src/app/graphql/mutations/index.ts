@@ -24,3 +24,10 @@ export const M_collectionsDocsDrop = gql`
     collectionsDocsDrop(topic: $topic, ids: $ids)
   }
 `;
+
+// assetsStoresAdd(fields: JsonData!): JsonData!
+export const M_assetsStoresAdd = gql`
+  mutation m_assetsStoresAdd($fields: JsonData!) {
+    assetsStoresAdd(fields: $fields)
+  }
+`;

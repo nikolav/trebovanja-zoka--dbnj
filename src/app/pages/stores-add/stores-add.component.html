@@ -1,5 +1,36 @@
 <app-layout-default>
-  <section>
-    page:stores-add
+  <section class="page--stores-add">
+    <app-toolbar-title>
+      <button ngProjectAs="prepend" mat-icon-button routerLink="/stores" class="-ms-2">
+        <icon-chevron-left class="*:scale-[122%]" />
+      </button>
+      <h3>
+        Novi dobavljač
+      </h3>
+    </app-toolbar-title>
+    <mat-card-content class="__sizer__ max-w-md mx-auto mt-10">
+      <form (ngSubmit)="onSubmit()" [formGroup]="form" autocomplete="off" autocorrect="off" class="flex flex-col gap-2">
+        <mat-form-field class="app-mat-form-field-underline">
+          <mat-label>Naziv</mat-label>
+          <input matInput name="name" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field class="app-mat-form-field-underline">
+          <mat-label>Šifra</mat-label>
+          <input matInput name="code" formControlName="code" />
+        </mat-form-field>
+        <mat-form-field class="app-mat-form-field-underline">
+          <mat-label>Adresa</mat-label>
+          <input matInput name="address" formControlName="address" />
+        </mat-form-field>
+        <mat-form-field class="app-mat-form-field-underline">
+          <mat-label>Dodatne informacije</mat-label>
+          <textarea matNativeControl cols="3" name="notes" formControlName="notes"></textarea>
+        </mat-form-field>
+        <div class="flex justify-around mt-5">
+          <button mat-button type="button" (click)="form.reset()">Poništi </button>
+          <button mat-flat-button type="submit">Sačuvaj</button>
+        </div>
+      </form>
+    </mat-card-content>
   </section>
 </app-layout-default>

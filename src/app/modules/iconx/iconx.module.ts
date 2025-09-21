@@ -17,6 +17,9 @@ import {
   IconStorefrontOutlineComponent,
   IconInvoiceAddOutlineComponent,
   IconStoreAddComponent,
+  IconAccountCircleOutlineComponent,
+  IconChevronLeftComponent,
+  IconChevronRightComponent,
 } from "../../components/icons";
 
 const ICONS = [
@@ -36,6 +39,9 @@ const ICONS = [
   IconStorefrontOutlineComponent,
   IconInvoiceAddOutlineComponent,
   IconStoreAddComponent,
+  IconAccountCircleOutlineComponent,
+  IconChevronLeftComponent,
+  IconChevronRightComponent,
 ];
 
 @NgModule({

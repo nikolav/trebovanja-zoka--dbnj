@@ -1,6 +1,5 @@
 import { Component, inject } from "@angular/core";
 // import { FormsModule } from "@angular/forms";
-import { JsonPipe } from "@angular/common";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 import { StoreAuth } from "../../stores";
@@ -17,7 +16,6 @@ import { IAuthCreds } from "../../types";
   imports: [
     // FormsModule,
     // IconxModule,
-    JsonPipe,
     LayoutDefault,
     MaterialUIModule,
     AppAuthCard,

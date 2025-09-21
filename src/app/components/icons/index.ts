@@ -14,3 +14,6 @@ export { IconFactoryComponent } from "./icon-factory/icon-factory.component";
 export { IconStorefrontOutlineComponent } from "./icon-storefront-outline/icon-storefront-outline.component";
 export { IconInvoiceAddOutlineComponent } from "./icon-invoice-add-outline/icon-invoice-add-outline.component";
 export { IconStoreAddComponent } from "./icon-store-add/icon-store-add.component";
+export { IconAccountCircleOutlineComponent } from "./icon-account-circle-outline/icon-account-circle-outline.component";
+export { IconChevronLeftComponent } from "./icon-chevron-left/icon-chevron-left.component";
+export { IconChevronRightComponent } from "./icon-chevron-right/icon-chevron-right.component";

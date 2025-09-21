@@ -5,4 +5,7 @@
 @import "tailwindcss/screens";
 
 @layer components {
+  .bg-active {
+    @apply app-surface-container;
+  }
 }

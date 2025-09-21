@@ -1,11 +1,35 @@
 <app-layout-default>
   <section class="page--stores">
-    <p>
-      page:stores
-    </p>
+    <app-toolbar-title>
+      <button ngProjectAs="prepend" mat-icon-button routerLink="/" class="-m-2">
+        <icon-chevron-left class="*:scale-[122%]" />
+      </button>
+      <h3>Dobavljači</h3>
+    </app-toolbar-title>
+    <mat-card-content class="mt-10">
+      <table #tableSorted matSort mat-table [dataSource]="dd" class="!bg-transparent">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="!pb-1"> <span
+              class="italic opacity-50">#ID</span>
+          </th>
+          <td mat-cell *matCellDef="let d" class="!border-0 align-middle"> {{d.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="!pb-1"> Naziv </th>
+          <td mat-cell *matCellDef="let d" class="!border-0 align-middle"> {{d.name}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="!h-fit"></tr>
+        <tr mat-row *matRowDef="let d; columns: displayedColumns;" class="hover:!bg-active cursor-pointer"
+          (click)="debug({ d })"></tr>
+
+      </table>
+    </mat-card-content>
     <a routerLink="/stores-add" mat-fab
       class="!rounded-full !fixed bottom-20 end-10 z-[1] !app-bg-primary !app-color-on-primary">
-      <icon-store-add size="1.75rem" />
+      <icon-store-add size="1.88rem" class="*:translate-x-[2px]" />
     </a>
   </section>
 </app-layout-default>

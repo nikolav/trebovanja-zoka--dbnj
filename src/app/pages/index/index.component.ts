@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   $$ = inject(UseUtilsService);
   links = [
     {
-      title: "Proizvođači",
+      title: "Dobavljači",
       route: "/stores",
       image: "/hznteiifpyr.png",
     },
@@ -27,7 +27,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       image: "/dgmttbnxzyj.png",
     },
     {
-      title: "Narudžbenice",
+      title: "Fakture",
       route: "/orders",
       image: "/jladxkcmtyl.png",
     },

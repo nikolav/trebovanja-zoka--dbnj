@@ -5,6 +5,10 @@
       <button mat-button (click)="$flags.toggle(isActiveSidenav)">toggle</button>
     </mat-sidenav>
     <mat-sidenav-content class="h-full relative">
+      @if ($appProcessing.processing()) {
+      <p>processing...</p>
+      }
+
       <!-- @@pages -->
       <div [@routeTransitionBlurInOut]="routeTransitionPrepareOutlet(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>

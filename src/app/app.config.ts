@@ -52,7 +52,6 @@ import { MAT_OPIONS } from "./config";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(CommonModule),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
@@ -79,6 +78,8 @@ export const appConfig: ApplicationConfig = {
     // ##firebase
     provideFirebaseApp(() => firebaseApp),
     provideFirebaseAuth(() => firebaseAuth),
+    // #provide:default
+    importProvidersFrom(CommonModule),
     // #provide:custom
     {
       provide: TOKEN_foo,
