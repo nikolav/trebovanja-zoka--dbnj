@@ -6,8 +6,9 @@ import {
   OnDestroy,
   signal,
 } from "@angular/core";
-import { from } from "rxjs";
 import { Apollo } from "apollo-angular";
+import { from } from "rxjs";
+import { Socket } from "ngx-socket-io";
 import {
   AppConfigService,
   ManageSubscriptionsService,
@@ -15,7 +16,6 @@ import {
 } from "../utils";
 import { TRecordJson } from "../../types";
 import { Q_assetsStoresList, M_assetsStoresAdd } from "../../graphql";
-import { Socket } from "ngx-socket-io";
 import { StoreAuth } from "../../stores";
 
 @Injectable({
@@ -30,7 +30,7 @@ export class StoresService implements OnDestroy {
   private $subs = new ManageSubscriptionsService();
 
   private io = this.$io.fromEvent(this.$config.io.IOEVENT_ASSETS_STORES_CHANGE);
-  private qref = this.$apollo.watchQuery({
+  private q = this.$apollo.watchQuery({
     query: Q_assetsStoresList,
     pollInterval: this.$config.graphql.QUERY_POLL_INTERVAL,
   });
@@ -43,7 +43,7 @@ export class StoresService implements OnDestroy {
       if (!this.enabled()) return;
       this.$subs.push({
         io: this.io.subscribe(() => this.reload()),
-        data: this.qref.valueChanges.subscribe((res) => {
+        data: this.q.valueChanges.subscribe((res) => {
           this.data.set(this.$$.get(res, "data.assetsStoresList.status", []));
         }),
       });
@@ -61,7 +61,7 @@ export class StoresService implements OnDestroy {
   }
   drop(...ids: any[]) {}
   reload() {
-    return from(this.qref.refetch());
+    return from(this.q.refetch());
   }
   destroy() {
     this.$subs.destroy();

@@ -10,6 +10,7 @@ import { Socket } from "ngx-socket-io";
 import { CollectionsManageService } from "./collections-manage.service";
 import { ManageSubscriptionsService, TopicsService } from "../utils";
 import { IRecordJsonWithMergeFlag } from "../../types";
+import { from } from "rxjs";
 
 // #https://the-guild.dev/graphql/apollo-angular/docs/get-started#installation
 @Injectable()
@@ -54,7 +55,7 @@ export class CollectionsService<TData = any> implements OnDestroy {
   }
   start() {
     this.$subs.push({
-      sub1_data: this.q()?.valueChanges.subscribe((res) =>
+      data: this.q()?.valueChanges.subscribe((res) =>
         this.data.set(this.$client.data(res))
       ),
     });
@@ -66,9 +67,7 @@ export class CollectionsService<TData = any> implements OnDestroy {
     this.$subs.destroy();
   }
   use(topic: string) {
-    if (topic) {
-      this.topic.set(topic);
-    }
+    this.topic.set(topic);
     return this;
   }
   // ##
